@@ -7,6 +7,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Route } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/News";
+import Settings from "./components/Settings/Settings";
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
           <Route path="/profile" component={Profile} />
           <Route path="/news" component={News} />
           <Route path="/music" component={Music} />
-          Welcome!
+          <Route path="/settings" component={Settings} />
         </div>
       </div>
     </BrowserRouter>
