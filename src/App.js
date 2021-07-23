@@ -6,7 +6,7 @@ import Nav from "./components/Navbar/Nav";
 import Dialogs from "./components/Dialogs/Dialogs";
 import { BrowserRouter, Route } from "react-router-dom";
 import News from "./components/News/News";
-import Music from "./components/Music/News";
+import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
 const App = () => {

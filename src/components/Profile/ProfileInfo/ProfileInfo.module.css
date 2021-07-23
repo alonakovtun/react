@@ -1,0 +1,15 @@
+
+.about{
+  display: flex;
+  margin: 15px 0;
+
+}
+
+.info{
+  margin-left: 20px;
+}
+
+.name{
+  font-size: 45px;
+}
+

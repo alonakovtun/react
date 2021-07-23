@@ -6,7 +6,7 @@ const MyPosts = () => {
   return (
     <div className={s.post}>
       <div className={s.addPost}>
-        <p>My posts</p>
+        <h3>My posts</h3>
         <form action="post">
           <input type="text" placeholder="Your news..." />
           <div className={s.btn}>
