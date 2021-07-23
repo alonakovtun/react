@@ -1,4 +1,6 @@
 
+
+
 .about{
   display: flex;
   margin: 15px 0;
@@ -21,20 +23,27 @@
 .addPost{
   width: 40%;
 }
-.addPost input{
+.addPost input[type="text"]{
   width: 100%;
   height: 50px;
   border: none;
   border-radius: 5px;
   padding: 5px;
   background-color: #f8f7fa;
+  font-size: 20px;
 }
 
 .addPost input::placeholder{
   font-size: 20px;
 }
 
-.btnSend{
+/* .btn{
+display: flex;
+flex-direction: row;
+justify-content:space-around;
+} */
+
+.btnItem{
   margin-top: 5px;
   float: left;
   width: 25%;
@@ -48,13 +57,4 @@
 
 .posts{
   margin-top: 20px;
-}
-
-.item{
-  margin: 20px 0;
-}
-.item::before{
-  content: ' \25CF';
-  font-size: 30px;
-  margin-right: 15px;
 }
