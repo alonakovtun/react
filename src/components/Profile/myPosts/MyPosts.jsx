@@ -3,6 +3,14 @@ import s from "./MyPosts.module.css"
 import Post from './Post/Post'
 
 const MyPosts = () => {
+
+  let postsData = [
+    { id: 1, message: "It's my first post", countLike: 15 },
+    { id: 2, message: "Hi, how are you?", countLike: 20 }
+  ]
+
+  let postsElements = postsData.map(p => <Post message={p.message} countLike={p.countLike} />)
+
   return (
     <div className={s.post}>
       <div className={s.addPost}>
@@ -13,17 +21,13 @@ const MyPosts = () => {
             <button className={s.btnItem}>
               Send
             </button>
-            {/* <button className={s.btnItem}>
-                Remove
-              </button> */}
           </div>
 
         </form>
       </div>
 
       <div className={s.posts}>
-        <Post message="Hi, how are you?" countLike="15"/>
-        <Post message="It's my first post" countLike="20"/> 
+        {postsElements}
       </div>
     </div>
   );
