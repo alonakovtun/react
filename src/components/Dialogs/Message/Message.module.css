@@ -1,7 +1,9 @@
-.messages{
-    padding: 10px;
+.message{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
 }
     
-.message{
-    
+.message span{
+    margin-left: 15px;
 }

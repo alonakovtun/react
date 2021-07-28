@@ -1,8 +1,11 @@
 .dialog{
-
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
 }
 
 .dialog a{
     text-decoration: none;
     color: #5e5b6b;
+    margin-left: 15px;
 }
