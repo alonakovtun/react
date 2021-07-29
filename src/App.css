@@ -18,3 +18,16 @@
   padding: 25px;
   font-size: 25px;
 }
+
+
+.btnItem{
+  margin-top: 5px;
+  float: left;
+  width: 25%;
+  padding: 10px;
+  border: none;
+  background-color: #69a6c9;
+  border-radius: 5px;
+  color: #f8f7fa;
+  font-size: 15px;
+}
