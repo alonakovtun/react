@@ -23,7 +23,7 @@
 .addPost{
   width: 40%;
 }
-.addPost input[type="text"]{
+.addPost textarea{
   width: 100%;
   height: 50px;
   border: none;
@@ -33,9 +33,6 @@
   font-size: 20px;
 }
 
-.addPost input::placeholder{
-  font-size: 20px;
-}
 
 /* .btn{
 display: flex;

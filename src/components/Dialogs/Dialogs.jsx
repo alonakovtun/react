@@ -1,19 +1,28 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import { updateNewMessageText } from '../../redux/state';
 import DialogItem from './DialogItem/DialogItem';
 import s from "./Dialogs.module.css"
 import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
-    let messagesElement = props.state.messagesData.map(m => <Message message={m.messages} />);
+    let dialogsElements = props.dialogsPage.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
+    let messagesElement = props.dialogsPage.messagesData.map(m => <Message message={m.messages} />);
 
     let newDialogElement = React.createRef();
     let addMessage = () => {
         let dialog = newDialogElement.current.value;
-        alert(dialog);
+        props.addMessage(dialog);
+        newDialogElement.current.value = '';
     }
+
+    let onMessageChange = () =>{
+        let text = newDialogElement.current.value;
+        props.updateNewMessageText(text)
+    }
+
+
 
     return (
         <div className={s.dialogs}>
@@ -26,14 +35,14 @@ const Dialogs = (props) => {
                     {messagesElement}
                 </div>
 
-                <form>
-                    <input type="text" placeholder="Message..."  ref={newDialogElement}/>
-                    <div className={s.btn}>
-                        <button onClick={addMessage} className={s.btnItem}>
-                            Send
-                        </button>
-                    </div>
-                </form>
+                <textarea onChange={onMessageChange} ref={newDialogElement} value={props.dialogsPage.newMessageText}></textarea>
+                {/*  <input type="text" placeholder="Message..." ref={newDialogElement}/> */}
+                <div className={s.btn}>
+                    <button onClick={addMessage} className={s.btnItem}>
+                        Send
+                    </button>
+                </div>
+
             </div>
         </div>
     );
