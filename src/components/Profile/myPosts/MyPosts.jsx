@@ -27,7 +27,11 @@ const MyPosts = (props) => {
         <h3>My posts</h3>
 
         {/* <input type="text" placeholder="Your news..." ref={newPostElement} /> */}
-        <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
+        <textarea
+          onChange={onPostChange}
+          ref={newPostElement}
+          value={props.newPostText}
+          placeholder="Enter your post text" />
         <div className={s.btn}>
           <button onClick={addPost} className={s.btnItem}>
             Send

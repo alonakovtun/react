@@ -1,5 +1,7 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 
 let store = {
   _state: {
@@ -8,7 +10,7 @@ let store = {
         { id: 1, message: "It's my first post", countLike: 15 },
         { id: 2, message: "Hi, how are you?", countLike: 20 },
       ],
-      newPostText: "new post",
+      newPostText: "",
     },
     dialogsPage: {
       messagesData: [
@@ -21,7 +23,7 @@ let store = {
         { id: 2, name: "Username" },
         { id: 3, name: "Bob Potato" },
       ],
-      newMessageText: "new message",
+      newMessageText: "",
     },
   },
   _callSubscriber() {
@@ -48,7 +50,8 @@ let store = {
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
-    } else if (action.type === "ADD-MESSAGE") {
+
+    } else if (action.type === ADD_MESSAGE) {
       let newMessage = {
         id: 4,
         messages: this._state.dialogsPage.newMessageText,
@@ -57,7 +60,7 @@ let store = {
       this._state.dialogsPage.messagesData.push(newMessage);
       this._state.profilePage.newPostText = "";
       this._callSubscriber(this._state);
-    } else if (action.type === "UPDATE-NEW-MESSAGE-TEXT") {
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
       this._state.dialogsPage.newMessageText = action.newText;
       this._callSubscriber(this._state);
     }
@@ -73,6 +76,19 @@ export const addPostActionCreator = () => {
 export const updateNewPostTextActionCreator = (text) => {
   return {
     type: UPDATE_NEW_POST_TEXT,
+    newText: text,
+  };
+};
+
+export const addMessageActionCreator = () => {
+  return {
+    type: ADD_MESSAGE,
+  };
+};
+
+export const updateNewMessageTextActionCreator = (text) => {
+  return {
+    type: UPDATE_NEW_MESSAGE_TEXT,
     newText: text,
   };
 };
