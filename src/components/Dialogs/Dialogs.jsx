@@ -6,22 +6,18 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.dialogsPage.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
-    let messagesElement = props.dialogsPage.messagesData.map(m => <Message message={m.messages} />);
+    let state = props.dialogsPage;
 
-    /* let newDialogElement = React.createRef(); */
-    let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+    let dialogsElements = state.dialogsData.map(d => <DialogItem name={d.name} id={d.id} />);
+    let messagesElement = state.messagesData.map(m => <Message message={m.messages} />);
+
+    let onSendMessage = () => {
+        props.sendMessage();
     }
-
-   /*  let onMessageChange = () => {
-        let text = newDialogElement.current.value;
-        props.dispatch(updateNewMessageTextActionCreator(text));
-    } */
 
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.dispatch(updateNewMessageTextActionCreator(body))
+        props.updateNewMessageText(body);
     };
 
     return (
@@ -43,7 +39,7 @@ const Dialogs = (props) => {
                 </textarea>
                 {/*  <input type="text" placeholder="Message..." ref={newDialogElement}/> */}
                 <div className={s.btn}>
-                    <button onClick={addMessage} className={s.btnItem}>
+                    <button onClick={onSendMessage} className={s.btnItem}>
                         Send
                     </button>
                 </div>

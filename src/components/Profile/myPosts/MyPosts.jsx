@@ -10,15 +10,14 @@ const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
 
-  let addPost = () => {
-    // props.addPost();
-    props.dispatch(addPostActionCreator());
+  let onAddPost = () => {
+    props.addPost();
+    
   }
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    // props.updateNewPostText(text)
-    props.dispatch(updateNewPostTextActionCreator(text));
+    props.updateNewPostText(text)
   }
 
   return (
@@ -33,7 +32,7 @@ const MyPosts = (props) => {
           value={props.newPostText}
           placeholder="Enter your post text" />
         <div className={s.btn}>
-          <button onClick={addPost} className={s.btnItem}>
+          <button onClick={onAddPost} className={s.btnItem}>
             Send
           </button>
         </div>
