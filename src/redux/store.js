@@ -39,9 +39,9 @@ let store = {
   },
 
   dispatch(action) {
-    profileReducer(this._state.profilePage, action);
-    dialogReducer(this._state.dialogsPage, action);
-    sidebarReducer(this._state.sidebar, action);
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogPage = dialogReducer(this._state.dialogsPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
     this._callSubscriber(this._state);
   },
